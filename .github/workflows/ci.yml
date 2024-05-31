@@ -33,9 +33,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+    - name: install migrate
+      run: go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
-    - uses: make migrateup
+    - name: migrate up
+      run: make migrateup
 
     - name: Set up Go
       uses: actions/setup-go@v4
