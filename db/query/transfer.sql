@@ -1,5 +1,3 @@
--- CreateTransfer, GetTransfer, and ListTransfers
-
 -- name: CreateTransfers :one
 INSERT INTO transfers (
   from_account_id, 

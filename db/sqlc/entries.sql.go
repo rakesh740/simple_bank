@@ -10,7 +10,6 @@ import (
 )
 
 const createEntry = `-- name: CreateEntry :one
-
 INSERT INTO entries (
   account_id, 
   amount, 
@@ -27,7 +26,6 @@ type CreateEntryParams struct {
 	Status    string `json:"status"`
 }
 
-// CreateEntry, GetEntry, and ListEntries
 func (q *Queries) CreateEntry(ctx context.Context, arg CreateEntryParams) (Entry, error) {
 	row := q.db.QueryRowContext(ctx, createEntry, arg.AccountID, arg.Amount, arg.Status)
 	var i Entry

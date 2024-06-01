@@ -8,10 +8,10 @@ import (
 
 type Server struct {
 	router *gin.Engine
-	store  *db.Store
+	store  db.IStore
 }
 
-func NewServer(s *db.Store) *Server {
+func NewServer(s db.IStore) *Server {
 	server := &Server{store: s}
 	router := gin.Default()
 

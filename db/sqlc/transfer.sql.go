@@ -10,7 +10,6 @@ import (
 )
 
 const createTransfers = `-- name: CreateTransfers :one
-
 INSERT INTO transfers (
   from_account_id, 
   to_account_id,
@@ -29,7 +28,6 @@ type CreateTransfersParams struct {
 	Status        string `json:"status"`
 }
 
-// CreateTransfer, GetTransfer, and ListTransfers
 func (q *Queries) CreateTransfers(ctx context.Context, arg CreateTransfersParams) (Transfer, error) {
 	row := q.db.QueryRowContext(ctx, createTransfers,
 		arg.FromAccountID,
