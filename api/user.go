@@ -66,11 +66,10 @@ type loginRequest struct {
 }
 
 type userResponse struct {
-	Username          string    `json:"username"`
-	Email             string    `json:"email"`
-	FullName          string    `json:"full_name"`
-	CreatedAt         time.Time `json:"created_at"`
-	PasswordChangedAt time.Time `json:"password_changed_at"`
+	Username  string    `json:"username"`
+	Email     string    `json:"email"`
+	FullName  string    `json:"full_name"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (server *Server) loginUser(c *gin.Context) {
@@ -113,10 +112,9 @@ func (server *Server) loginUser(c *gin.Context) {
 
 func newUserResponse(user db.User) userResponse {
 	return userResponse{
-		Username:          user.Username,
-		Email:             user.Email,
-		FullName:          user.FullName,
-		CreatedAt:         user.CreatedAt,
-		PasswordChangedAt: user.PasswordChangedAt,
+		Username:  user.Username,
+		Email:     user.Email,
+		FullName:  user.FullName,
+		CreatedAt: user.CreatedAt,
 	}
 }
