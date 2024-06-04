@@ -40,11 +40,14 @@ jobs:
 
     - name: install migrate
       run: | 
-          go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
-          make migrateup
+        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+        sudo mv migrate.linux-amd64 /usr/bin/migrate
+        which migrate
 
     - name: Check out code into the GO module directory
       uses: actions/checkout@v2
 
     - name: Test
       run: make test
+
+     
